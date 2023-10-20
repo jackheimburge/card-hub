@@ -1,7 +1,9 @@
-export default function CardListItem() {
+export default function CardListItem({ card }) {
     return (
         <div>
-            <h1>CardListItem</h1>
+            <p>{card.player}</p>
+            <p>{card.title}</p>
+            <hr />
         </div>
     );
 }

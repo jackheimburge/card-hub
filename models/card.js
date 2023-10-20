@@ -30,6 +30,8 @@ const cardSchema = new Schema({
         type: String,
         enum: ['Basketball', 'Baseball', 'Football', 'Soccer', 'Other']
     }
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Card', cardSchema);

@@ -10,7 +10,7 @@ export default function HomePage() {
     useEffect(function () {
         async function getAllCards() {
             const allCards = await cardsAPI.getAllCards();
-            console.log(allCards);
+            setAllCards(allCards);
         }
         getAllCards();
     }, []);
@@ -18,7 +18,7 @@ export default function HomePage() {
     return (
         <div className='HomePage'>
             <CategoryList />
-            <CardList />
+            <CardList allCards={allCards} />
         </div>
     );
 }
