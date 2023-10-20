@@ -1,7 +1,7 @@
 export default function CategoryList() {
     return (
         <>
-            <h1>CategoryList</h1>
+            <h1>Browse by your favorite sport!</h1>
         </>
     );
 }
