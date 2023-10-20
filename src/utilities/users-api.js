@@ -10,7 +10,3 @@ export async function signUp(userData) {
 export async function login(userCredentials) {
     return sendRequest(`${BASE_URL}/login`, 'POST', userCredentials);
 }
-
-export function checkToken() {
-    return sendRequest(`${BASE_URL}/check-token`);
-}
