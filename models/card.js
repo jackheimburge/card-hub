@@ -7,7 +7,7 @@ const cardSchema = new Schema({
         required: true
     },
     year: {
-        type: Number,
+        type: String,
         required: true,
     },
     title: {
@@ -15,7 +15,7 @@ const cardSchema = new Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     isSold: {
@@ -29,6 +29,14 @@ const cardSchema = new Schema({
     category: {
         type: String,
         enum: ['Basketball', 'Baseball', 'Football', 'Soccer', 'Other']
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        required: true
     }
 }, {
     timestamps: true

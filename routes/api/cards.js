@@ -8,7 +8,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // GET /api/cards (get all cards)
 router.get('/', cardsCtrl.getAllCards);
-// POST /api/users/login
+// POST /api/cards (create new card)
+router.post('/', cardsCtrl.create);
 
 
 module.exports = router;
