@@ -15,28 +15,24 @@ export default function NewCardForm({ allCards, setAllCards }) {
     });
     const fileInputRef = useRef();
 
-    // An array to store image URLs before submission
-    const [imageUrl, setImageUrl] = useState([]);
-
-    async function handleImageUpload() {
-        const formData = new FormData();
-        formData.append('image', fileInputRef.current.files[0]);
-        const newImg = await imagesAPI.uploadImg(formData);
-        setImageUrl(newImg)
-    }
-
     async function handleSubmit(e) {
         e.preventDefault();
-        // Upload the selected images to AWS and store the image URLs
-        handleImageUpload();
-        // Set the image URLs in the card state
-        setCard({
-            ...card,
-            image: imageUrl,
-        });
 
-        // Add the card to the database
-        const addedCard = await cardsAPI.add(card);
+        // Create a new FormData object and append the selected image
+        const formData = new FormData();
+        formData.append('image', fileInputRef.current.files[0]);
+
+        // Upload the image to AWS and get the URL
+        const newImg = await imagesAPI.uploadImg(formData);
+
+        // Update the image property in the card state
+        const updatedCard = {
+            ...card,
+            image: newImg,
+        };
+
+        // Add the updated card to the database
+        const addedCard = await cardsAPI.add(updatedCard);
 
         // Clear the form and file input
         setAllCards([addedCard, ...allCards]);
@@ -47,9 +43,10 @@ export default function NewCardForm({ allCards, setAllCards }) {
             price: '',
             category: '',
             description: '',
-            image: '',
+            image: '', // Reset the image URL
         });
-        fileInputRef.current.value = '';
+
+        fileInputRef.current.value = ''; // Clear the file input
     }
 
     const handleChange = (e) => {

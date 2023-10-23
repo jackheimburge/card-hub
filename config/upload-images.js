@@ -11,5 +11,5 @@ module.exports = async function (file) {
     };
     console.log(s3Params, 's3 params')
     await s3Client.send(new PutObjectCommand(s3Params));
-    return `https://s3-us-west-1.amazonaws.com/${s3Params.Key}`;
+    return `https://heimburge-catcollector.s3-us-west-1.amazonaws.com/${s3Params.Key}`;
 };

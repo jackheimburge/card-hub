@@ -9,7 +9,7 @@ async function upload(req, res) {
         if (req.file) { // Use req.files.images to access the uploaded images
             console.log('img url')
             const imgUrl = await uploadImage(req.file);
-            console.log('img url')
+            console.log(imgUrl, 'img url')
             res.json(imgUrl);
         } else {
             throw new Error('Must select a file');
