@@ -2,7 +2,8 @@ const Card = require('../../models/card');
 
 module.exports = {
     getAllCards,
-    create
+    create,
+    getCard
 
 }
 
@@ -15,4 +16,10 @@ async function create(req, res) {
     req.body.user = req.user._id;
     const newCard = await Card.create(req.body);
     res.json(newCard);
+}
+
+async function getCard(req, res) {
+    console.log(req.params);
+    const card = await Card.findById(req.params.id)
+    res.json(card);
 }

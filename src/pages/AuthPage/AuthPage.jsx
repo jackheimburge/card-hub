@@ -9,7 +9,7 @@ export default function AuthPage({ setUser }) {
     return (
         <main className="AuthPage">
             <div>
-                <button className="login-signup-btn" onClick={() => setShowSignUpForm(!showSignUpForm)}>SEI CAFE</button>
+                <button className="login-signup-btn" onClick={() => setShowSignUpForm(!showSignUpForm)}>Card Hub</button>
                 <h4>{showSignUpForm ? 'Log In' : 'Sign Up'}</h4>
             </div>
             <div>

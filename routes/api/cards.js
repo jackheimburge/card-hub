@@ -9,6 +9,10 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // GET /api/cards (get all cards)
 router.get('/', cardsCtrl.getAllCards);
+
+//GET /api/cards/:id (get single card)
+router.get('/:id', cardsCtrl.getCard);
+
 // POST /api/cards (create new card)
 router.post('/', cardsCtrl.create);
 

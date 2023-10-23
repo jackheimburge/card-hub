@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../../pages/HomePage/HomePage';
 import DashboardPage from '../../pages/DashboardPage/DashboardPage';
+import CardDetailPage from '../../pages/CardDetailPage/CardDetailPage';
 import * as cardsAPI from '../../utilities/cards-api';
 
 
@@ -19,7 +20,7 @@ export default function App() {
       setAllCards(allCards);
     }
     getAllCards();
-  }, []);
+  }, [allCards]);
   return (
     <main className="App">
       {user ?
@@ -29,6 +30,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage allCards={allCards} />} />
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
+            <Route path="/cards/:id" element={<CardDetailPage />} />
           </Routes>
         </>
         :

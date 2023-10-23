@@ -11,33 +11,23 @@ export default function NewCardForm({ allCards, setAllCards }) {
         price: '',
         category: '',
         description: '',
-        images: [] // To store image URLs
+        images: []
     });
     const fileInputRef = useRef();
 
     async function handleSubmit(e) {
         e.preventDefault();
-
-        // Create a new FormData object and append the selected image
         const formData = new FormData();
-        for (let i = 0; i < fileInputRef.current.files.length; i++) {
+        for (let i = 0; i < fileInputRef.current.files.length; i++) {  // Create a new FormData object and append the selected images
             formData.append('images', fileInputRef.current.files[i]);
         }
-
-        // Upload the image to AWS and get the URL
-        const newImgs = await imagesAPI.uploadImgs(formData);
-
-        // Update the image property in the card state
-        const updatedCard = {
+        const newImgs = await imagesAPI.uploadImgs(formData);  // Upload the image to AWS and get the URL
+        const updatedCard = { // Update the image property in the card state
             ...card,
             images: newImgs,
         };
-
-        // Add the updated card to the database
-        const addedCard = await cardsAPI.add(updatedCard);
-
-        // Clear the form and file input
-        setAllCards([addedCard, ...allCards]);
+        const addedCard = await cardsAPI.add(updatedCard); // Add the updated card to the database
+        setAllCards([...allCards, addedCard]);
         setCard({
             player: '',
             year: '',
@@ -45,13 +35,12 @@ export default function NewCardForm({ allCards, setAllCards }) {
             price: '',
             category: '',
             description: '',
-            images: [] // Reset the image URL
+            images: []
         });
-
         fileInputRef.current.value = ''; // Clear the file input
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { // Update the state of the new card being created
         setCard({
             ...card,
             [e.target.name]: e.target.value,
