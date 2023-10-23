@@ -60,19 +60,19 @@ export default function NewCardForm({ allCards, setAllCards }) {
         <div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
-                <input name="player" id="player" onChange={handleChange} />
+                <input name="player" value={card.player} id="player" onChange={handleChange} />
                 <label htmlFor="year">Year</label>
-                <input name="year" id="year" onChange={handleChange} />
+                <input name="year" id="year" value={card.year} onChange={handleChange} />
                 <label htmlFor="title">Title</label>
-                <input name="title" id="title" onChange={handleChange} />
+                <input name="title" id="title" value={card.title} onChange={handleChange} />
                 <label htmlFor="price">Price</label>
-                <input name="price" id="price" onChange={handleChange} />
+                <input name="price" id="price" value={card.price} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
                 <input type="file" name="image" ref={fileInputRef} id="image" />
                 <label htmlFor="category">Sport</label>
-                <input name="category" id="category" onChange={handleChange} />
+                <input name="category" id="category" value={card.category} onChange={handleChange} />
                 <label htmlFor="description">Condition/Other Details</label>
-                <input name="description" id="description" onChange={handleChange} />
+                <input name="description" id="description" value={card.description} onChange={handleChange} />
                 <button type="submit">Submit</button>
             </form>
         </div>
