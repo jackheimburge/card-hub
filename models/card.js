@@ -22,8 +22,8 @@ const cardSchema = new Schema({
         type: Boolean,
         default: false
     },
-    image: {
-        type: String, //Array of image URL's stored in AWS
+    images: {
+        type: [String], //Array of image URL's stored in AWS
     },
     category: {
         type: String,

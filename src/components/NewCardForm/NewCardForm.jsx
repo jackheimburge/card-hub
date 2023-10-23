@@ -11,7 +11,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
         price: '',
         category: '',
         description: '',
-        image: '', // To store image URLs
+        images: [] // To store image URLs
     });
     const fileInputRef = useRef();
 
@@ -20,15 +20,17 @@ export default function NewCardForm({ allCards, setAllCards }) {
 
         // Create a new FormData object and append the selected image
         const formData = new FormData();
-        formData.append('image', fileInputRef.current.files[0]);
+        for (let i = 0; i < fileInputRef.current.files.length; i++) {
+            formData.append('images', fileInputRef.current.files[i]);
+        }
 
         // Upload the image to AWS and get the URL
-        const newImg = await imagesAPI.uploadImg(formData);
+        const newImgs = await imagesAPI.uploadImgs(formData);
 
         // Update the image property in the card state
         const updatedCard = {
             ...card,
-            image: newImg,
+            images: newImgs,
         };
 
         // Add the updated card to the database
@@ -43,7 +45,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
             price: '',
             category: '',
             description: '',
-            image: '', // Reset the image URL
+            images: [] // Reset the image URL
         });
 
         fileInputRef.current.value = ''; // Clear the file input
@@ -68,7 +70,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 <label htmlFor="price">Price</label>
                 <input name="price" id="price" value={card.price} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
-                <input type="file" name="image" ref={fileInputRef} id="image" />
+                <input type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
                 <input name="category" id="category" value={card.category} onChange={handleChange} />
                 <label htmlFor="description">Condition/Other Details</label>
@@ -78,3 +80,4 @@ export default function NewCardForm({ allCards, setAllCards }) {
         </div>
     );
 }
+

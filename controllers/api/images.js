@@ -1,4 +1,4 @@
-const uploadImage = require('../../config/upload-images');
+const uploadImages = require('../../config/upload-images');
 
 module.exports = {
     upload
@@ -6,11 +6,12 @@ module.exports = {
 
 async function upload(req, res) {
     try {
-        if (req.file) { // Use req.files.images to access the uploaded images
+        console.log(req.files, 'req.files controller before')
+        if (req.files) { // Use req.files.images to access the uploaded images
             console.log('img url')
-            const imgUrl = await uploadImage(req.file);
-            console.log(imgUrl, 'img url')
-            res.json(imgUrl);
+            const imgUrls = await Promise.all(req.files.map(uploadImages))
+            console.log(imgUrls, 'img url')
+            res.json(imgUrls);
         } else {
             throw new Error('Must select a file');
         }
