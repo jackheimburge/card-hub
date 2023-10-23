@@ -19,13 +19,31 @@ export default function CardDetailPage() {
     return (
         <div className='CardDetailPage'>
             {card ? (
-                <div className='carousel'>
-                    <Splide aria-label="My Favorite Images">
-                        {card.images.map((image, idx) => <SplideSlide>
-                            <img key={idx} src={image} alt={`${idx + 1}`} />
-                        </SplideSlide>)}
-                    </Splide>
-                </div>
+                <>
+                    <div className='carousel'>
+                        <Splide aria-label="My Favorite Images">
+                            {card.images.map((image, idx) => <SplideSlide>
+                                <img key={idx} src={image} alt={`${idx + 1}`} />
+                            </SplideSlide>)}
+                        </Splide>
+                    </div>
+                    <div className="card-info">
+                        <h1>{card.player}</h1>
+                        <hr />
+                        <p>Year: {card.year}</p>
+                        <p>Title: {card.title}</p>
+                        <p>Sport: {card.category}</p>
+                        <hr />
+                        <p>Full Description: {card.description}</p>
+                        <hr />
+                        <h3>Price w/ Shipping (${card.price})</h3>
+                        <button className="btn btn-success">Add To Cart</button>
+                        <hr />
+                    </div>
+                    <div className="seller-info">
+                        <h2>Seller: {card.user.username}</h2>
+                    </div>
+                </>
             ) : (<p>Loading...</p>)
             }
         </div>

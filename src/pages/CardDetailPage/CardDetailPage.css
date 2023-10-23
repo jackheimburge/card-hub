@@ -1,7 +1,29 @@
+.CardDetailPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+}
+
 .CardDetailPage img {
-    height: 35rem;
+    height: 55vh;
 }
 
 .CardDetailPage .carousel {
-    width: 30%;
+    grid-row: span 2;
+    margin-top: 15rem;
+    width: 20vw;
+    margin-left: 5rem;
+    border: 0.5rem solid black;
+}
+
+.CardDetailPage .card-info {
+    margin-top: 10rem;
+    border: 0.1rem solid black;
+    height: 100%;
+    text-align: left;
+}
+
+.CardDetailPage .seller-info {
+    border: 0.1rem solid black;
+    margin: 10rem;
 }

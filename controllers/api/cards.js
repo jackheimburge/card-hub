@@ -19,7 +19,7 @@ async function create(req, res) {
 }
 
 async function getCard(req, res) {
-    console.log(req.params);
-    const card = await Card.findById(req.params.id)
+    const card = await Card.findById(req.params.id).populate('user');
+    console.log(card, 'card in controller');
     res.json(card);
 }
