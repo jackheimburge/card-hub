@@ -3,6 +3,7 @@ const router = express.Router();
 const cardsCtrl = require('../../controllers/api/cards');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
+
 // all paths start with '/api/cards'
 
 

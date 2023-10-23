@@ -1,20 +1,14 @@
 import NewCardForm from "../../components/NewCardForm/NewCardForm";
-import * as cardsAPI from '../../utilities/cards-api'
 
 export default function DashboardPage({ allCards, user, setAllCards }) {
 
-    const userCards = allCards.filter((card) => card.user === user);
-
-    async function handleAddCard(cardData) {
-        const card = await cardsAPI.add(cardData);
-        setAllCards([card, ...allCards]);
-    }
+    const userCards = allCards.filter((card) => card.user === user._id);
 
 
     return (
         <div>
-            {userCards.map((card) => <p>{card.player}</p>)}
-            <NewCardForm handleAddCard={handleAddCard} />
+            {userCards.map((card, idx) => <p key={idx}>{card.player}</p>)}
+            <NewCardForm allCards={allCards} setAllCards={setAllCards} />
         </div >
     );
 }

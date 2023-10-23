@@ -7,7 +7,6 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../../pages/HomePage/HomePage';
 import DashboardPage from '../../pages/DashboardPage/DashboardPage';
 import * as cardsAPI from '../../utilities/cards-api';
-import { set } from 'mongoose';
 
 
 export default function App() {
@@ -17,7 +16,6 @@ export default function App() {
   useEffect(function () {
     async function getAllCards() {
       const allCards = await cardsAPI.getAllCards();
-      console.log(typeof allCards)
       setAllCards(allCards);
     }
     getAllCards();
