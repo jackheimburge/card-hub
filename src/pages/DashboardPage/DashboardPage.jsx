@@ -7,11 +7,11 @@ export default function DashboardPage({ allCards, user, setAllCards }) {
 
 
     return (
-        <div>
+        <div className="row mt-5">
+            <NewCardForm allCards={allCards} setAllCards={setAllCards} />
             {userCards.map((card, idx) =>
                 <CardListItem key={idx} card={card} />
             )}
-            <NewCardForm allCards={allCards} setAllCards={setAllCards} />
         </div >
     );
 }

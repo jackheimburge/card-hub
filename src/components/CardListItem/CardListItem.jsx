@@ -1,18 +1,30 @@
 import { Link } from "react-router-dom";
+import Carousel from "../Carousel/Carousel";
 import './CardListItem.css'
 
 
 export default function CardListItem({ card }) {
 
     return (
-        <div className='CardListItem'>
+        <div className='CardListItem col-3 mb-5'>
             <Link to={`/cards/${card._id}`} >
-                <p>{card.player}</p>
-                <p>{card.title}</p>
-                <img src={card.images[0]} alt="" />
-                <img src={card.images[1]} alt="" />
-                <hr />
-            </Link>
+                <div class="card" >
+                    <Carousel card={card} />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </Link >
         </div >
     );
 }

@@ -30,7 +30,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage allCards={allCards} />} />
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
-            <Route path="/cards/:id" element={<CardDetailPage />} />
+            <Route path="/cards/:id" element={<CardDetailPage user={user} />} />
           </Routes>
         </>
         :

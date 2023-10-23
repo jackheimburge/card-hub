@@ -3,7 +3,7 @@ import CardListItem from "../CardListItem/CardListItem";
 
 export default function CardList({ allCards }) {
     return (
-        <div className="CardList">
+        <div className="CardList row">
             {allCards.map((card, idx) => <CardListItem key={idx} card={card} />)}
         </div>
     );

@@ -1,3 +1,12 @@
+.CardListItem {
+    display: flex;
+    justify-content: center;
+}
+
 .CardListItem img {
-    height: 30vmin;
+    height: 50vmin;
+}
+
+.CardListItem .carousel {
+    height: 30rem;
 }
