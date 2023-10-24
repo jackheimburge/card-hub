@@ -3,7 +3,8 @@ const Card = require('../../models/card');
 module.exports = {
     getAllCards,
     create,
-    getCard
+    getCard,
+    deleteCard
 
 }
 
@@ -20,6 +21,11 @@ async function create(req, res) {
 
 async function getCard(req, res) {
     const card = await Card.findById(req.params.id).populate('user');
-    console.log(card, 'card in controller');
     res.json(card);
+}
+
+async function deleteCard(req, res) {
+    const deletedCard = await Card.deleteOne(req.body);
+    console.log('deleted card in controller:', deletedCard.player)
+    res.json(deletedCard);
 }

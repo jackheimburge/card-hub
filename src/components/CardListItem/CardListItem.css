@@ -3,10 +3,18 @@
     justify-content: center;
 }
 
-.CardListItem img {
-    height: 50vmin;
+.DashboardPage .CardListItem .carousel img {
+    height: 25rem;
 }
 
-.CardListItem .carousel {
-    height: 30rem;
+.CardListItem img {
+    height: 35vmin;
+}
+
+.HomePage .card {
+    width: 30rem;
+}
+
+.HomePage .card img {
+    height: 40rem;
 }

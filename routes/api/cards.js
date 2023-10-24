@@ -19,5 +19,8 @@ router.get('/:id', cardsCtrl.getCard);
 // POST /api/cards (create new card)
 router.post('/', cardsCtrl.create);
 
+//DELETE /api/cards/:id
+router.delete('/:id', cardsCtrl.deleteCard)
+
 
 module.exports = router;

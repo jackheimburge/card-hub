@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import * as cardsAPI from '../../utilities/cards-api';
-import { useParams } from 'react-router-dom';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { useParams, Link } from 'react-router-dom';
 import Carousel from '../../components/Carousel/Carousel';
 import '@splidejs/react-splide/css'
 import './CardDetailPage.css';
+import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
-export default function CardDetailPage({ user }) {
+export default function CardDetailPage({ user, setAllCards, allCards }) {
     const [card, setCard] = useState(null);
     const { id } = useParams();
 
@@ -33,7 +33,11 @@ export default function CardDetailPage({ user }) {
                         <hr />
                         <h3>Price w/ Shipping (${card.price})</h3>
                         {card.user._id === user._id ?
-                            <button className='btn btn-success'>Edit</button> : <button className='btn btn-success'>Add to Cart</button>
+                            <div>
+                                <button className='btn btn-success'>Edit Listing</button>
+                                <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
+                            </div>
+                            : <button className='btn btn-success'>Add to Cart</button>
                         }
 
                         <hr />
@@ -42,7 +46,7 @@ export default function CardDetailPage({ user }) {
                         <h2>Seller: {card.user._id}</h2>
                         <h2>User: {user._id}</h2>
                         {card.user._id === user._id ?
-                            <button className='btn btn-success'>My dashboard</button> : <button className='btn btn-success'>Visit Store</button>
+                            <Link to='/dashboard'><button className='btn btn-success'>My dashboard</button> </Link> : <button className='btn btn-success'>Visit Store</button>
                         }
                     </div>
                 </>
