@@ -20,7 +20,7 @@ export default function App() {
       setAllCards(allCards);
     }
     getAllCards();
-  }, []);
+  }, [allCards]);
   return (
     <main className="App">
       {user ?
