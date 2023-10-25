@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 require('dotenv').config();
 require('./config/database');
@@ -22,7 +23,8 @@ app.use(require('./config/check-token'));
 // API routes here, before 'catch all' route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/cards', require('./routes/api/cards'));
-app.use('/api/images', require('./routes/api/images'));
+app.use('/api/images', ensureLoggedIn, require('./routes/api/images'));
+app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
 
 // The following 'catch all *' route is used
 // to return the index.html on all non-AJAX ==> API requests
