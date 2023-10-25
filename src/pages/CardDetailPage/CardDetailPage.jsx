@@ -17,6 +17,7 @@ export default function CardDetailPage({ user, setAllCards, allCards }) {
         }
         getCard();
     }, [id]);
+
     return (
         <div className='CardDetailPage'>
             {card ? (
@@ -34,7 +35,13 @@ export default function CardDetailPage({ user, setAllCards, allCards }) {
                         <h3>Price w/ Shipping (${card.price})</h3>
                         {card.user._id === user._id ?
                             <div>
-                                <button className='btn btn-success'>Edit Listing</button>
+                                <Link to={{
+                                    pathname: `/cards/${card._id}/edit`,
+                                    state: { card }
+                                }}
+                                >
+                                    <button className='btn btn-success'>Edit Listing</button>
+                                </Link>
                                 <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
                             </div>
                             : <button className='btn btn-success'>Add to Cart</button>
@@ -52,6 +59,6 @@ export default function CardDetailPage({ user, setAllCards, allCards }) {
                 </>
             ) : (<h1 className="d-flex">Loading...</h1>)
             }
-        </div>
+        </div >
     );
 }

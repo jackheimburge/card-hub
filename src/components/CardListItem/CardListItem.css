@@ -4,7 +4,11 @@
 }
 
 .DashboardPage .CardListItem .carousel img {
-    height: 25rem;
+    height: 40rem;
+}
+
+.DashboardPage .card {
+    width: 30rem;
 }
 
 .CardListItem img {

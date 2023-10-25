@@ -7,6 +7,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../../pages/HomePage/HomePage';
 import DashboardPage from '../../pages/DashboardPage/DashboardPage';
 import CardDetailPage from '../../pages/CardDetailPage/CardDetailPage';
+import EditCardPage from '../EditCardPage/EditCardPage';
 import * as cardsAPI from '../../utilities/cards-api';
 
 
@@ -19,7 +20,10 @@ export default function App() {
       const allCards = await cardsAPI.getAllCards();
       setAllCards(allCards);
     }
-    getAllCards();
+    if (allCards.length === 0) {
+      getAllCards();
+    }
+
   }, [allCards]);
   return (
     <main className="App">
@@ -31,6 +35,7 @@ export default function App() {
             <Route path="/" element={<HomePage allCards={allCards} />} />
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
             <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} />} />
+            <Route path="/cards/:id/edit" element={<EditCardPage allCards={allCards} setAllCards={setAllCards} />} />
           </Routes>
         </>
         :

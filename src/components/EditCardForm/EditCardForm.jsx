@@ -1,22 +1,12 @@
 import { useState, useRef } from 'react';
-import './NewCardForm.css';
-import * as cardsAPI from '../../utilities/cards-api';
 import * as imagesAPI from '../../utilities/images-api';
+import * as cardsAPI from '../../utilities/cards-api';
 
-export default function NewCardForm({ allCards, setAllCards }) {
+export default function EditCardForm({ userCard, setUserCard, setAllCards, allCards }) {
     const [isUploading, setIsUploading] = useState(false);
-    const [card, setCard] = useState({
-        player: '',
-        year: '',
-        title: '',
-        price: '',
-        category: '',
-        description: '',
-        images: []
-    });
     const fileInputRef = useRef();
-
     async function handleSubmit(e) {
+
         e.preventDefault();
         setIsUploading(true);
         const formData = new FormData();
@@ -25,27 +15,27 @@ export default function NewCardForm({ allCards, setAllCards }) {
         }
         const newImgs = await imagesAPI.uploadImgs(formData);  // Upload the image to AWS and get the URL
         const updatedCard = { // Update the image property in the card state
-            ...card,
+            ...userCard,
             images: newImgs,
         };
-        const addedCard = await cardsAPI.add(updatedCard); // Add the updated card to the database
-        setAllCards([...allCards, addedCard]);
-        setCard({
-            player: '',
-            year: '',
-            title: '',
-            price: '',
-            category: '',
-            description: '',
-            images: []
-        });
+        const editedCard = await cardsAPI.update(updatedCard); // Add the updated card to the database
+        setAllCards([...allCards, editedCard]);
+        // setUserCard({
+        //     player: '',
+        //     year: '',
+        //     title: '',
+        //     price: '',
+        //     category: '',
+        //     description: '',
+        //     images: []
+        // });
         fileInputRef.current.value = ''; // Clear the file input
         setIsUploading(false);
     }
 
     const handleChange = (e) => { // Update the state of the new card being created
-        setCard({
-            ...card,
+        setUserCard({
+            ...userCard,
             [e.target.name]: e.target.value,
         });
     };
@@ -54,17 +44,17 @@ export default function NewCardForm({ allCards, setAllCards }) {
         <div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
-                <input required name="player" value={card.player} id="player" onChange={handleChange} />
+                <input required name="player" value={userCard.player} id="player" onChange={handleChange} />
                 <label htmlFor="year">Year</label>
-                <input required name="year" id="year" value={card.year} onChange={handleChange} />
+                <input required name="year" id="year" value={userCard.year} onChange={handleChange} />
                 <label htmlFor="title">Title</label>
-                <input required name="title" id="title" value={card.title} onChange={handleChange} />
+                <input required name="title" id="title" value={userCard.title} onChange={handleChange} />
                 <label htmlFor="price">Price</label>
-                <input required name="price" id="price" value={card.price} onChange={handleChange} />
+                <input required name="price" id="price" value={userCard.price} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
                 <input required type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
-                <select required name="category" id="category" value={card.category} onChange={handleChange} >
+                <select required name="category" id="category" value={userCard.category} onChange={handleChange} >
                     <option >-Select a Category-</option>
                     <option value="Basketball">Basketball</option>
                     <option value="Baseball">Baseball</option>
@@ -73,7 +63,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
                     <option value="Other">Other</option>
                 </select>
                 <label htmlFor="description">Condition/Other Details</label>
-                <input required name="description" id="description" value={card.description} onChange={handleChange} />
+                <input required name="description" id="description" value={userCard.description} onChange={handleChange} />
                 <button disabled={isUploading} type="submit">Submit</button>
                 <h1>{isUploading ? 'Loading...' : ''}</h1>
             </form>
@@ -81,4 +71,3 @@ export default function NewCardForm({ allCards, setAllCards }) {
 
     );
 }
-

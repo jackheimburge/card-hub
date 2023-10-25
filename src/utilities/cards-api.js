@@ -14,6 +14,10 @@ export function add(cardData) {
     return sendRequest(BASE_URL, 'POST', cardData);
 }
 
+export function update(cardData) {
+
+}
+
 export function deleteCard(card) {
     console.log(card._id, 'card_id')
     return sendRequest(`${BASE_URL}/${card._id}`, 'DELETE', card)
