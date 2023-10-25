@@ -15,7 +15,7 @@ export function add(cardData) {
 }
 
 export function update(cardData) {
-
+    return sendRequest(`${BASE_URL}/${cardData._id}/edit`, 'PUT', cardData);
 }
 
 export function deleteCard(card) {

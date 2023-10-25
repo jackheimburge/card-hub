@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as imagesAPI from '../../utilities/images-api';
 import * as cardsAPI from '../../utilities/cards-api';
 
 export default function EditCardForm({ userCard, setUserCard, setAllCards, allCards }) {
     const [isUploading, setIsUploading] = useState(false);
     const fileInputRef = useRef();
+    const navigate = useNavigate();
     async function handleSubmit(e) {
 
         e.preventDefault();
@@ -18,19 +20,11 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
             ...userCard,
             images: newImgs,
         };
-        const editedCard = await cardsAPI.update(updatedCard); // Add the updated card to the database
+        const editedCard = await cardsAPI.update(updatedCard);
         setAllCards([...allCards, editedCard]);
-        // setUserCard({
-        //     player: '',
-        //     year: '',
-        //     title: '',
-        //     price: '',
-        //     category: '',
-        //     description: '',
-        //     images: []
-        // });
         fileInputRef.current.value = ''; // Clear the file input
         setIsUploading(false);
+        navigate(`/cards/${userCard._id}`);
     }
 
     const handleChange = (e) => { // Update the state of the new card being created
