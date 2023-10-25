@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function SellerInfo({ card, user }) {
+export default function SellerInfoCard({ card, user }) {
     return (
         <div className="seller-info">
             <h2>Seller: {card.user._id}</h2>
