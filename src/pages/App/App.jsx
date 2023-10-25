@@ -24,7 +24,7 @@ export default function App() {
       getAllCards();
     }
 
-  }, [allCards]);
+  }, [allCards, setAllCards]);
   return (
     <main className="App">
       {user ?

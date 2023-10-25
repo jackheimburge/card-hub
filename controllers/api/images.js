@@ -6,11 +6,9 @@ module.exports = {
 
 async function upload(req, res) {
     try {
-        console.log(req.files, 'req.files controller before')
         if (req.files) { // Use req.files.images to access the uploaded images
             console.log('img url')
             const imgUrls = await Promise.all(req.files.map(uploadImages))
-            console.log(imgUrls, 'img url')
             res.json(imgUrls);
         } else {
             throw new Error('Must select a file');

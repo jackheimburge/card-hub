@@ -20,9 +20,8 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
             ...userCard,
             images: newImgs,
         };
-        const editedCard = await cardsAPI.update(updatedCard);
-        setAllCards([...allCards, editedCard]);
-        fileInputRef.current.value = ''; // Clear the file input
+        const allUpdatedCards = await cardsAPI.update(updatedCard);
+        setAllCards(allUpdatedCards);
         setIsUploading(false);
         navigate(`/cards/${userCard._id}`);
     }
@@ -38,17 +37,17 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
         <div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
-                <input required name="player" value={userCard.player} id="player" onChange={handleChange} />
+                <input required name="player" value={userCard.player || ''} id="player" onChange={handleChange} />
                 <label htmlFor="year">Year</label>
-                <input required name="year" id="year" value={userCard.year} onChange={handleChange} />
+                <input required name="year" id="year" value={userCard.year || ''} onChange={handleChange} />
                 <label htmlFor="title">Title</label>
-                <input required name="title" id="title" value={userCard.title} onChange={handleChange} />
+                <input required name="title" id="title" value={userCard.title || ''} onChange={handleChange} />
                 <label htmlFor="price">Price</label>
-                <input required name="price" id="price" value={userCard.price} onChange={handleChange} />
+                <input required name="price" id="price" value={userCard.price || ''} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
                 <input required type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
-                <select required name="category" id="category" value={userCard.category} onChange={handleChange} >
+                <select required name="category" id="category" value={userCard.category || ''} onChange={handleChange} >
                     <option >-Select a Category-</option>
                     <option value="Basketball">Basketball</option>
                     <option value="Baseball">Baseball</option>
@@ -57,7 +56,7 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
                     <option value="Other">Other</option>
                 </select>
                 <label htmlFor="description">Condition/Other Details</label>
-                <input required name="description" id="description" value={userCard.description} onChange={handleChange} />
+                <input required name="description" id="description" value={userCard.description || ''} onChange={handleChange} />
                 <button disabled={isUploading} type="submit">Submit</button>
                 <h1>{isUploading ? 'Loading...' : ''}</h1>
             </form>
