@@ -18,12 +18,17 @@ export default function CardDetailPage({ user, setAllCards, allCards }) {
         getCard();
     }, [id]);
 
+    async function handleAddToCart() {
+
+    }
+
+
     return (
         <div className='CardDetailPage'>
             {card ? (
                 <>
                     <Carousel card={card} />
-                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} />
+                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} handleAddToCart={handleAddToCart} />
                     <SellerInfoCard user={user} card={card} />
                 </>
             ) : (<h1 className="d-flex">Loading...</h1>)

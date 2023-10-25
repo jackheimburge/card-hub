@@ -21,5 +21,12 @@ const orderSchema = new Schema({
     {
         timestamps: true
     })
-
+orderSchema.statics.getCart = function (userId) {
+    return this.findOneAndUpdate(
+        // query object
+        { user: userId, isPaid: false },
+        { user: userId },
+        { upsert: true, new: true }
+    );
+};
 module.exports = mongoose.model('Order', orderSchema);

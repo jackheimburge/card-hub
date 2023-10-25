@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
-export default function CardDetailItem({ card, setAllCards, allCards, user }) {
+export default function CardDetailItem({ card, setAllCards, allCards, user, handleAddToCart }) {
+
     return (
         <div className="card-info">
             <h1>{card.player}</h1>
@@ -24,7 +25,7 @@ export default function CardDetailItem({ card, setAllCards, allCards, user }) {
                     </Link>
                     <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
                 </div>
-                : <button className='btn btn-success'>Add to Cart</button>
+                : <button className='btn btn-success' onClick={handleAddToCart} >Add to Cart</button>
             }
 
             <hr />
