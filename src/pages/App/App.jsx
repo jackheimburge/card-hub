@@ -15,6 +15,7 @@ import * as cardsAPI from '../../utilities/cards-api';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [allCards, setAllCards] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(function () {
     async function getAllCards() {
@@ -35,9 +36,9 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage allCards={allCards} />} />
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
-            <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} />} />
+            <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} setCart={setCart} />} />
             <Route path="/cards/:id/edit" element={<EditCardPage allCards={allCards} setAllCards={setAllCards} />} />
-            <Route path="/cart" element={<CartPage allCards={allCards} setAllCards={setAllCards} />} />
+            <Route path="/cart" element={<CartPage allCards={allCards} setAllCards={setAllCards} cart={cart} setCart={setCart} />} />
           </Routes>
         </>
         :

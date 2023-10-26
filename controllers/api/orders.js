@@ -8,7 +8,8 @@ module.exports = {
 async function addToCart(req, res) {
     try {
         const cart = await Order.getCart(req.user._id);
-        await cart.addCardToCart(req.params._id);
+        await cart.addCardToCart(req.params.id);
+        console.log(req.params.id)
         res.json({ message: 'Card added to cart successfully' });
     } catch (error) {
         console.error('Error adding card to cart:', error);

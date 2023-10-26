@@ -7,9 +7,8 @@ import './CardDetailPage.css';
 import SellerInfoCard from '../../components/SellerInfoCard/SellerInfoCard';
 import CardDetailItem from '../../components/CardDetailItem/CardDetailItem';
 
-export default function CardDetailPage({ user, setAllCards, allCards }) {
+export default function CardDetailPage({ user, setAllCards, allCards, setCart }) {
     const [card, setCard] = useState(null);
-    const [cart, setCart] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {

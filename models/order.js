@@ -32,6 +32,7 @@ orderSchema.statics.getCart = function (userId) {
 orderSchema.methods.addCardToCart = async function (cardId) {
     const cart = this;
     cart.cards.push(cardId);
+    return cart.save();
 }
 
 
