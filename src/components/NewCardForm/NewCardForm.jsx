@@ -35,7 +35,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
             year: '',
             title: '',
             price: '',
-            category: '',
+            category: 'Basketball',
             description: '',
             images: []
         });
@@ -65,7 +65,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 <input required type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
                 <select required name="category" id="category" value={card.category} onChange={handleChange} >
-                    <option >-Select a Category-</option>
+                    <option value={'Basketball'}>-Select a Category-</option>
                     <option value="Basketball">Basketball</option>
                     <option value="Baseball">Baseball</option>
                     <option value="Football">Football</option>

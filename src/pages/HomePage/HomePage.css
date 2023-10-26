@@ -1,4 +1,20 @@
 .HomePage {
-    display: grid;
-    grid-template-rows: 1fr 5fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.HomePage .CardListItem {
+    width: 28vw;
+    margin: 3rem 1.5rem;
+}
+
+.HomePage .CardList {
+    border: 1px solid black;
+}
+
+.HomePage .CardListItem img {
+    height: 20rem;
+    border-radius: 10px;
 }

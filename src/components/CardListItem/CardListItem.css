@@ -1,24 +1,23 @@
 .CardListItem {
     display: flex;
     justify-content: center;
-}
-
-.DashboardPage .CardListItem .carousel img {
-    height: 40rem;
-}
-
-.DashboardPage .card {
-    width: 30rem;
+    border: 1px solid black;
 }
 
 .CardListItem img {
     height: 35vmin;
 }
 
-.HomePage .card {
-    width: 30rem;
+.CardListItem .info {
+    text-align: left;
 }
 
-.HomePage .card img {
-    height: 40rem;
+.CardListItem h4 {
+    font-weight: bolder;
+    margin: 1rem 0 1rem 1rem;
+}
+
+.CardListItem h5 {
+    font-style: italic;
+    margin: 1rem 0 1rem 1rem;
 }
