@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
 import CartItem from '../../components/CartItem/CartItem';
 import CheckoutBtn from '../../components/CheckoutBtn/CheckoutBtn';
 import './CartPage.css';
 
 export default function CartPage({ setCart, cart, allCards }) {
+    const [checkoutMessage, setCheckoutMessage] = useState(null);
 
     useEffect(function () {
         async function getCart() {
@@ -16,7 +17,14 @@ export default function CartPage({ setCart, cart, allCards }) {
     }, [setCart, allCards]);
 
     async function handleCheckout() {
-        await ordersAPI.checkout();
+        try {
+            const checkoutMsg = await ordersAPI.checkout();
+            setCart(null);
+            setCheckoutMessage(checkoutMsg);
+        } catch (error) {
+            setCheckoutMessage('Checkout failed. Try Again.')
+        }
+
     }
 
     return (
@@ -25,6 +33,7 @@ export default function CartPage({ setCart, cart, allCards }) {
                 cart.map((card) => <CartItem key={card._id} card={card} />)
             ) : <h1>Cart is Empty</h1>}
             <CheckoutBtn handleCheckout={handleCheckout} />
+            {checkoutMessage && <p>{checkoutMessage.message}</p>}
         </div>
     );
 }

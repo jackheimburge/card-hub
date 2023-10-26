@@ -23,7 +23,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
 }
@@ -124,13 +123,12 @@ button,
 a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
+  background-color: transparent;
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: none;
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;

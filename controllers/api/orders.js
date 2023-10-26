@@ -30,9 +30,9 @@ async function cart(req, res) {
 
 async function checkout(req, res) {
     try {
-        const cart = await Order.getCart(req.user._id);
+        const cart = await Order.getCart(req.user._id)
         cart.checkout();
-        res.json(cart);
+        res.json({ message: 'Your Purchase Was Successful!' })
 
     } catch (error) {
         console.error('Error checking out', error);
