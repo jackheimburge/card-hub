@@ -2,7 +2,8 @@ const Order = require('../../models/order');
 
 module.exports = {
     addToCart,
-    cart
+    cart,
+    checkout
 }
 
 async function addToCart(req, res) {
@@ -24,5 +25,17 @@ async function cart(req, res) {
     } catch (error) {
         console.error('Error fetching cart:', error);
         res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
+async function checkout(req, res) {
+    try {
+        const cart = await Order.getCart(req.user._id);
+        cart.checkout();
+        res.json(cart);
+
+    } catch (error) {
+        console.error('Error checking out', error);
+        res.status(500).json({ error: 'Internal server error' })
     }
 }

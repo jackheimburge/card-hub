@@ -10,5 +10,8 @@ router.get('/cart', ordersCtrl.cart);
 //POST api/orders/cart/items/:id
 router.post('/cart/items/:id', ordersCtrl.addToCart);
 
+//POST api/orders/cart/checkout
+router.post('/cart/checkout', ordersCtrl.checkout)
+
 
 module.exports = router;

@@ -35,5 +35,16 @@ orderSchema.methods.addCardToCart = async function (cardId) {
     return cart.save();
 }
 
+orderSchema.methods.checkout = async function () {
+    const cart = this;
+    const Card = mongoose.model('Card');
+
+    for (const cardId of cart.cards) {
+        const card = await Card.findById(cardId);
+        card.isSold = true;
+        await card.save()
+    }
+}
+
 
 module.exports = mongoose.model('Order', orderSchema);

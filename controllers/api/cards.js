@@ -9,7 +9,7 @@ module.exports = {
 }
 
 async function getAllCards(req, res) {
-    const allCards = await Card.find({});
+    const allCards = await Card.find({ isSold: false });
     res.json(allCards);
 }
 

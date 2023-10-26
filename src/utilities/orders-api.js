@@ -10,4 +10,8 @@ export function getCart() {
     return sendRequest(`${BASE_URL}/cart`);
 }
 
+export function checkout(cards) {
+    return sendRequest(`${BASE_URL}/cart/checkout`, 'POST')
+}
+
 
