@@ -25,7 +25,7 @@ export default function CardDetailItem({ card, setAllCards, allCards, user, hand
                     </Link>
                     <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
                 </div>
-                : <button className='btn btn-success' onClick={handleAddToCart} >Add to Cart</button>
+                : <button className='btn btn-success' onClick={() => handleAddToCart(card._id)} >Add to Cart</button>
             }
 
             <hr />

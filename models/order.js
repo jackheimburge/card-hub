@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Card = require('./card')
-
 const orderSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
@@ -20,7 +18,8 @@ const orderSchema = new Schema({
 },
     {
         timestamps: true
-    })
+    });
+
 orderSchema.statics.getCart = function (userId) {
     return this.findOneAndUpdate(
         // query object
@@ -29,4 +28,11 @@ orderSchema.statics.getCart = function (userId) {
         { upsert: true, new: true }
     );
 };
+
+orderSchema.methods.addCardToCart = async function (cardId) {
+    const cart = this;
+    cart.cards.push(cardId);
+}
+
+
 module.exports = mongoose.model('Order', orderSchema);
