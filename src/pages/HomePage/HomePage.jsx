@@ -6,7 +6,6 @@ export default function HomePage({ allCards }) {
 
     return (
         <div className='HomePage'>
-            <CategoryList />
             <CardList allCards={allCards} />
         </div>
     );

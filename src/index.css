@@ -96,6 +96,7 @@ form {
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
   color: var(--text-light);
+  width: 50%;
 }
 
 label {
@@ -108,15 +109,15 @@ input {
   padding: 1vmin;
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
+  border-radius: .8vmin;
+  color: black;
   background-image: none !important;
   /* prevent lastpass */
   outline: none;
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: rgb(50, 50, 50);
 }
 
 button,
