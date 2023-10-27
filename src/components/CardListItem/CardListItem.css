@@ -23,3 +23,18 @@
     font-style: italic;
     margin: 1rem 0 1rem 1rem;
 }
+
+.CardListItem p {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.CardListItem .btn-success {
+    background-color: rgba(231, 115, 0, 0.99);
+    border: none;
+}
+
+.CardListItem .btn-success:hover {
+    background-color: rgba(180, 100, 21, 0.99);
+    border: none;
+}

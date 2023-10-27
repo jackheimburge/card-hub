@@ -13,11 +13,8 @@ export default function CardListItem({ card }) {
                 <h4>{card.player}</h4>
                 <hr />
                 <h5>{card.title}</h5>
-                <h4>${card.price}</h4>
                 <hr />
-                <h5>{card.category}</h5>
-                <hr />
-                <button className="btn btn-primary">Add to Cart</button>
+                <p>${card.price} <button className="btn btn-success">Add to Cart</button></p>
             </div>
         </div >
     );

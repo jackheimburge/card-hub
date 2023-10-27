@@ -117,7 +117,7 @@ input {
 }
 
 input:focus {
-  border-color: rgb(50, 50, 50);
+  border-color: black;
 }
 
 button,
@@ -148,10 +148,11 @@ button.btn-xs {
 button:disabled,
 form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: grey;
 }
 
+/* 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */

@@ -1,13 +1,17 @@
 .CardList {
     width: 95vw;
-    margin-top: -5rem;
+    margin-top: -3rem;
 }
 
 .CardList .filter-input {
-    width: 70vw;
+    width: 85vw;
     border-radius: 50px;
     border: 1px solid grey;
     padding-left: 20px;
+}
+
+.CardList .filter-input:focus {
+    border: 1.5px solid black;
 }
 
 .card-list {
