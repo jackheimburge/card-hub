@@ -1,9 +1,13 @@
 #nav-logo {
-    height: 10rem;
+    height: 8rem;
 }
 
 .dropdown {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: -2rem;
-    margin-right: 2.5rem;
+    margin-right: 0.5rem;
+}
+
+.navbar {
+    padding: 0;
 }
