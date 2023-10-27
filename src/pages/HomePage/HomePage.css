@@ -6,15 +6,16 @@
 }
 
 .HomePage .CardListItem {
-    width: 28vw;
+    width: 22vw;
     margin: 3rem 1.5rem;
 }
 
 .HomePage .CardList {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .HomePage .CardListItem img {
-    height: 20rem;
+    height: 25rem;
     border-radius: 10px;
+    margin: 2rem 2rem 2rem 0.5rem;
 }

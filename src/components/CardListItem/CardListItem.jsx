@@ -11,8 +11,10 @@ export default function CardListItem({ card }) {
             </Link>
             <div className="info">
                 <h4>{card.player}</h4>
+                <hr />
                 <h5>{card.title}</h5>
                 <h4>${card.price}</h4>
+                <hr />
                 <h5>{card.category}</h5>
             </div>
         </div >

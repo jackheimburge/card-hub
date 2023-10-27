@@ -1,11 +1,12 @@
 .CardListItem {
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    align-items: center;
 }
 
 .CardListItem img {
-    height: 35vmin;
+    height: 40vmin;
+    margin-right: 1.5rem;
 }
 
 .CardListItem .info {

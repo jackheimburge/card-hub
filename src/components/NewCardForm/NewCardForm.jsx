@@ -56,11 +56,11 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 <label htmlFor="player">Player</label>
                 <input required name="player" value={card.player} id="player" onChange={handleChange} />
                 <label htmlFor="year">Year</label>
-                <input required name="year" id="year" value={card.year} onChange={handleChange} />
+                <input type="number" required name="year" id="year" value={card.year} onChange={handleChange} />
                 <label htmlFor="title">Title</label>
                 <input required name="title" id="title" value={card.title} onChange={handleChange} />
                 <label htmlFor="price">Price</label>
-                <input required name="price" id="price" value={card.price} onChange={handleChange} />
+                <input type="number" required name="price" id="price" value={card.price} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
                 <input required type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
