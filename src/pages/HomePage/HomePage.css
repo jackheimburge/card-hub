@@ -6,8 +6,7 @@
 }
 
 .HomePage .CardListItem {
-    width: 22vw;
-    margin: 3rem 1.5rem;
+    width: 100%;
 }
 
 .HomePage .CardListItem img {

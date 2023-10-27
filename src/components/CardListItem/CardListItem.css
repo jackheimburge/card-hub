@@ -11,6 +11,7 @@
 
 .CardListItem .info {
     text-align: left;
+    width: 270px;
 }
 
 .CardListItem h4 {

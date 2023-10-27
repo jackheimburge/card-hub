@@ -3,7 +3,7 @@ import CardListItem from "../CardListItem/CardListItem";
 import CategoryList from "../CategoryList/CategoryList";
 import './CardList.css';
 
-const delayMs = 300;
+const delayMs = 100;
 
 export default function CardList({ allCards }) {
     const [filterText, setFilterText] = useState('');
@@ -14,10 +14,10 @@ export default function CardList({ allCards }) {
     useEffect(function () {
         function doFilter() {
             const re = new RegExp(`.*${filterText}.*`, 'i');
-            const itemsFilteredByText = allCards.filter(card => re.test(card.player) || re.test(card.title) || re.test(card.category));
+            const filterByText = allCards.filter(card => re.test(card.player) || re.test(card.title) || re.test(card.category));
             // Filter by category (selectedCategory)
-            const itemsFilteredByCategory = itemsFilteredByText.filter(card => !cat || card.category === cat);
-            setFilteredItems(itemsFilteredByCategory);
+            const allFilters = filterByText.filter(card => !cat || card.category === cat);
+            setFilteredItems(allFilters);
         }
         // Clear the previous timer and set a new one
         clearTimeout(timerIdRef.current);
@@ -27,15 +27,18 @@ export default function CardList({ allCards }) {
     }, [filterText, cat, allCards]);
 
     return (
-        <div className="CardList">
-            <CategoryList setCat={setCat} setFilterText={setFilterText} />
+        <div className="CardList ">
+            <CategoryList
+                setCat={setCat}
+                setFilterText={setFilterText}
+            />
             <input
                 className='filter-input'
                 value={filterText} // Show only the filter text
                 onChange={(evt) => setFilterText(evt.target.value)}
-                placeholder='Search for cards'
+                placeholder='Search for anything'
             />
-            <div className="row">
+            <div className="row card-list">
                 {filteredItems.map((card, idx) => <CardListItem key={idx} card={card} />)}
             </div>
         </div>
