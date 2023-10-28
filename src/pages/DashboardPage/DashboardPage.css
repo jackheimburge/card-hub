@@ -1,7 +1,16 @@
-.DashboardPage .CardListItem .carousel img {
-    height: 40rem;
+.DashboardPage .info {
+    width: 30vw;
 }
 
-.DashboardPage .card {
-    width: 30rem;
+.DashboardPage .CardListItem {
+    margin: 5rem 0;
+}
+
+.DashboardPage img {
+    height: 20rem;
+}
+
+.DashboardPage h1 {
+    font-size: 3rem;
+    margin: -5rem 0 5rem 0;
 }

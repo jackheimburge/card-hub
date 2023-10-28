@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import './NewCardForm.css';
 import * as cardsAPI from '../../utilities/cards-api';
 import * as imagesAPI from '../../utilities/images-api';
+import './NewCardForm.css'
 
 export default function NewCardForm({ allCards, setAllCards }) {
     const [isUploading, setIsUploading] = useState(false);
@@ -51,7 +52,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
     };
 
     return (
-        <div>
+        <div className='NewCardForm'>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
                 <input required name="player" value={card.player} id="player" onChange={handleChange} />
@@ -75,8 +76,8 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 <label htmlFor="description">Condition/Other Details</label>
                 <input required name="description" id="description" value={card.description} onChange={handleChange} />
                 <button disabled={isUploading} type="submit">Submit</button>
-                <h1>{isUploading ? 'Loading...' : ''}</h1>
             </form>
+            <h1>{isUploading ? 'Loading...' : ''}</h1>
         </div>
 
     );
