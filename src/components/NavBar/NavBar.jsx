@@ -10,26 +10,26 @@ export default function NavBar({ user, setUser }) {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg bg-body-light">
+        <nav className="navbar navbar-expand-lg bg-body-light">
             <Link to="/">
-                <a class="navbar-brand" href="#">
+                <button className="navbar-brand" >
                     <img id='nav-logo' src="https://i.imgur.com/LfL2Oth.png" alt="" />
-                </a>
-            </Link>
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            </Link>
+            <div className="container-fluid">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li className="nav-item dropdown">
+                            <button className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Hello, {user.name.split(' ')[0]}!
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <Link to="/dashboard"><li><a class="dropdown-item" href="#">Dashboard</a></li></Link>
-                                <Link to="/cart"><a class="dropdown-item" href="#">Cart</a></Link>
-                                <Link to="" onClick={handleLogOut}><li><a class="dropdown-item" href="#">Log Out</a></li></Link>
+                            </button>
+                            <ul className="dropdown-menu dropdown-menu-right">
+                                <Link to="/dashboard"><li><button className="dropdown-item" >Dashboard</button></li></Link>
+                                <Link to="/cart"><button className="dropdown-item" >Cart</button></Link>
+                                <Link to="" onClick={handleLogOut}><li><button className="dropdown-item" >Log Out</button></li></Link>
                             </ul>
                         </li>
                     </ul>

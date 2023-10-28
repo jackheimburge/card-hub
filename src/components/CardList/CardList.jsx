@@ -5,7 +5,7 @@ import './CardList.css';
 
 const delayMs = 100;
 
-export default function CardList({ allCards }) {
+export default function CardList({ allCards, user, setCart }) {
     const [filterText, setFilterText] = useState('');
     const [cat, setCat] = useState(''); // Add this state variable
     const [filteredItems, setFilteredItems] = useState(allCards);
@@ -39,7 +39,7 @@ export default function CardList({ allCards }) {
                 placeholder='Search for anything'
             />
             <div className="row card-list">
-                {filteredItems.map((card, idx) => <CardListItem key={idx} card={card} />)}
+                {filteredItems.map((card, idx) => <CardListItem key={idx} card={card} userId={user._id} setCart={setCart} />)}
             </div>
         </div>
     );
