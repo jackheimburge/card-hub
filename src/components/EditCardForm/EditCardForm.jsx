@@ -45,7 +45,7 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
                 <label htmlFor="price">Price</label>
                 <input required name="price" id="price" value={userCard.price || ''} onChange={handleChange} />
                 <label htmlFor="image">Image</label>
-                <input required type="file" name="images" ref={fileInputRef} id="images" multiple />
+                <input type="file" name="images" ref={fileInputRef} id="images" multiple />
                 <label htmlFor="category">Sport</label>
                 <select required name="category" id="category" value={userCard.category || ''} onChange={handleChange} >
                     <option >-Select a Category-</option>

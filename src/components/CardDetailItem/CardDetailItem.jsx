@@ -27,8 +27,6 @@ export default function CardDetailItem({ card, setAllCards, allCards, user, hand
                 </div>
                 : <button className='btn btn-success' onClick={() => handleAddToCart(card._id)} >Add to Cart</button>
             }
-
-            <hr />
         </div>
     );
 }
