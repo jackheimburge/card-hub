@@ -30,15 +30,17 @@ export default function CartPage({ setCart, cart, allCards }) {
     }
 
     return (
-        <div className='CartPage'>
+        <div className='CartPage row'>
             {Array.isArray(cart) && cart.length > 0 ? (
                 <>
                     {cart.map((card) => (
-                        <div key={card._id}>
+                        <div key={card._id} className='col-4'>
                             <CardListItem card={card} />
                         </div>
                     ))}
-                    <CheckoutBtn handleCheckout={handleCheckout} />
+                    <div>
+                        <CheckoutBtn handleCheckout={handleCheckout} />
+                    </div>
                 </>
             ) : (
                 <div>
