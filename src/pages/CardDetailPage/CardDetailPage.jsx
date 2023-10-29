@@ -7,7 +7,7 @@ import './CardDetailPage.css';
 import SellerInfoCard from '../../components/SellerInfoCard/SellerInfoCard';
 import CardDetailItem from '../../components/CardDetailItem/CardDetailItem';
 
-export default function CardDetailPage({ user, setAllCards, allCards, setCart }) {
+export default function CardDetailPage({ user, setAllCards, allCards, setCart, cart }) {
     const [card, setCard] = useState(null);
     const { id } = useParams();
 
@@ -22,6 +22,7 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart })
     async function handleAddToCart(cardId) {
         const updatedCart = await ordersAPI.addCardToCart(cardId);
         setCart(updatedCart);
+        console.log(cart);
     }
 
 
@@ -30,7 +31,7 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart })
             {card ? (
                 <>
                     <Carousel card={card} />
-                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} handleAddToCart={handleAddToCart} />
+                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} handleAddToCart={handleAddToCart} cart={cart} />
                     <SellerInfoCard user={user} card={card} />
                 </>
             ) : (<h1 className="d-flex">Loading...</h1>)
