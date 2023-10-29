@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
 import CartItem from '../../components/CartItem/CartItem';
 import CheckoutBtn from '../../components/CheckoutBtn/CheckoutBtn';
+import { Link } from 'react-router-dom';
+import CardListItem from '../../components/CardListItem/CardListItem';
 import './CartPage.css';
 
 export default function CartPage({ setCart, cart, allCards }) {
@@ -28,11 +30,23 @@ export default function CartPage({ setCart, cart, allCards }) {
     }
 
     return (
-        <div>
-            {(Array.isArray(cart) && cart.length > 0) ? (
-                cart.map((card) => <CartItem key={card._id} card={card} />)
-            ) : <h1>Cart is Empty</h1>}
-            <CheckoutBtn handleCheckout={handleCheckout} />
+        <div className='CartPage'>
+            {Array.isArray(cart) && cart.length > 0 ? (
+                <>
+                    {cart.map((card) => (
+                        <div key={card._id}>
+                            <CardListItem card={card} />
+                        </div>
+                    ))}
+                    <CheckoutBtn handleCheckout={handleCheckout} />
+                </>
+            ) : (
+                <div>
+                    <h1>You don't have any items in your cart</h1>
+                    <Link to="/"><button className='btn btn-primary'>Browse Cards!</button></Link>
+                </div>
+            )}
+
             {checkoutMessage && <p>{checkoutMessage.message}</p>}
         </div>
     );
