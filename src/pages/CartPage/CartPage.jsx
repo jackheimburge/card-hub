@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 import CardListItem from '../../components/CardListItem/CardListItem';
 import './CartPage.css';
 
-export default function CartPage({ setCart, cart, allCards }) {
+export default function CartPage({ setCart, cart, allCards, setAllCards }) {
     const [checkoutMessage, setCheckoutMessage] = useState(null);
     const [total, setTotal] = useState(0);
+    const [isPaid, setIsPaid] = useState(false);
     useEffect(function () {
         async function getCart() {
             const cart = await ordersAPI.getCart();
             setTotal(cart.total);
+            setIsPaid(cart.isPaid);
             const cartItems = allCards.filter((card) => cart.cards.includes(card._id));
             setCart(cartItems);
         }
@@ -39,7 +41,7 @@ export default function CartPage({ setCart, cart, allCards }) {
                         </div>
                     ))}
                     <div>
-                        <CheckoutBtn handleCheckout={handleCheckout} cart={cart} total={total} />
+                        <CheckoutBtn handleCheckout={handleCheckout} cart={cart} total={total} isPaid={isPaid} />
                     </div>
                 </>
             ) : (

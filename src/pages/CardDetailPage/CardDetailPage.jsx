@@ -22,9 +22,8 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart, c
     async function handleAddToCart(cardId) {
         const updatedCart = await ordersAPI.addCardToCart(cardId);
         setCart(updatedCart);
-        console.log(cart);
-    }
 
+    }
 
     return (
         <div className='CardDetailPage'>

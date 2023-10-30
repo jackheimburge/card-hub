@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import './CardListItem.css'
-import * as ordersAPI from '../../utilities/orders-api';
 
-
-export default function CardListItem({ card, userId, setCart }) {
-    async function handleAddToCart(cardId) {
-        const updatedCart = await ordersAPI.addCardToCart(cardId);
-        setCart(updatedCart);
-    }
+export default function CardListItem({ card }) {
 
     return (
         <div className='CardListItem mb-5 col-4'>

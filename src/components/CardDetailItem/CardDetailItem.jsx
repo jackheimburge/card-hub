@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
 export default function CardDetailItem({ card, setAllCards, allCards, user, handleAddToCart, cart }) {
-
     return (
         <div className="card-info">
             <h1>{card.player}</h1>
