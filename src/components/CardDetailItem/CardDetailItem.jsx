@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import DeleteButton from '../DeleteButton/DeleteButton';
+import './CardDetailItem.css';
 
 export default function CardDetailItem({ card, setAllCards, allCards, user, handleAddToCart, handleRemoveFromCart, cart }) {
     return (
         <div className="card-info">
             <h1>{card.player}</h1>
             <hr />
-            <p><span>Year: </span> {card.year}</p>
-            <p><span>Title: </span> {card.title}</p>
-            <p><span>Sport: </span> {card.category}</p>
+            <p><span>Year: &nbsp;</span> {card.year}</p>
+            <p><span>Title: &nbsp;</span> {card.title}</p>
+            <p><span>Sport: &nbsp;</span> {card.category}</p>
             <hr />
-            <p><span>Description: </span> {card.description}</p>
+            <p><span>Description: &nbsp;</span> {card.description}</p>
             <hr />
             <h3>Price w/ Shipping (${card.price})</h3>
             {card.user._id === user._id ?

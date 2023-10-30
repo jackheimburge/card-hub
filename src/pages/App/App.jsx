@@ -27,9 +27,11 @@ export default function App() {
       const cart = await ordersAPI.getCart();
       setCart(cart);
     }
+    if (user) {
+      getCart();
+    }
     if (allCards.length === 0) {
       getAllCards();
-      getCart();
     }
 
   }, [allCards, setAllCards, setCart]);

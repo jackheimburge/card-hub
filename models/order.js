@@ -40,7 +40,7 @@ orderSchema.pre('save', async function (next) {
     for (let card of cards) {
         total += parseFloat(card.price);
     }
-    this.total = total;
+    this.total = total.toFixed(2);
     next();
 })
 

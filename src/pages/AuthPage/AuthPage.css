@@ -31,7 +31,14 @@
 }
 
 .auth-right h1 {
+    font-family: 'Agbalumo', sans-serif;
+    font-size: 3rem;
+}
+
+.auth-right h2 {
     margin: 1rem 0;
+    font-family: 'Agbalumo', sans-serif;
+    font-size: 2.5rem;
 }
 
 .auth-right .form-container {
