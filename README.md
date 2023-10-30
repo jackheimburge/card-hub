@@ -23,7 +23,8 @@
 </div>
 
 ## 📝 Description
-The Card Hub is your one stop shop for Sports Card collectors.
+The Card Hub is your one stop shop for Sports Card collectors. Buy and sell all of your favorite cards.
+Collect your favorite teams and players!
 
 ## Getting Started 
 
@@ -50,6 +51,6 @@ The Card Hub is your one stop shop for Sports Card collectors.
 
 # Next Steps
 
-- [ ] Add seller storefront
-- [ ] Dynamically render add/remove cart buttons
+- [ ] Storefront
+- [ ] Messaging
 - [ ] Order History
