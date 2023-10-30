@@ -33,25 +33,23 @@ The Card Hub is your one stop shop for Sports Card collectors.
 # Screenshot
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Landing Page</h3> | <img src="https://i.imgur.com/jiIeLvC.jpg">
-| <h3 align="center">Dashboard</h3> | <img src="https://i.imgur.com/a8a0XBy.png`">
-| <h3 align="center">Vehicle Form</h3> | <img src="https://i.imgur.com/Qab6kYt.jpg">
-| <h3 align="center">Vehicle List</h3> | <img src="https://i.imgur.com/DWgYhQp.jpg">
+| <h3 align="center">Login Page</h3> | <img src="https://i.imgur.com/4lYbtap.png">
+| <h3 align="center">Index</h3> | <img src="https://i.imgur.com/WI8O9IS.png">
+| <h3 align="center">Card Detail</h3> | <img src="https://i.imgur.com/ts6tnQY.png">
+| <h3 align="center">Cart</h3> | <img src="https://i.imgur.com/0p0mCqx.png">
 
 # Technologies Used
-![Python 3](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
-![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
-![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
-![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)
+
 
 # Next Steps
 
-- [ ] Add more comprehensive visualizations
-- [ ] Add custom admin template
-- [ ] Add administrative graphs
-- [ ] Add a live auction feature
+- [ ] Add seller storefront
+- [ ] Dynamically render add/remove cart buttons
+- [ ] Order History
