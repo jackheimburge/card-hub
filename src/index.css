@@ -95,7 +95,6 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
   width: 50%;
 }
 
@@ -148,11 +147,10 @@ button.btn-xs {
 button:disabled,
 form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: grey;
 }
 
-/* 
+
 button[type="submit"] {
   grid-column: span 2;
-  margin: 1vmin 0 0;
-} */
+  margin: 2vmin 0 0 1.5vmin;
+}

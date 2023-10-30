@@ -8,11 +8,12 @@ export default function AuthPage({ setUser }) {
 
     return (
         <main className="AuthPage">
-            <div>
-                <button className="login-signup-btn" onClick={() => setShowSignUpForm(!showSignUpForm)}><img src="https://i.imgur.com/LfL2Oth.png" alt="" />{showSignUpForm ? 'Log In' : 'Sign Up'}</button>
-            </div>
-            <div>
+            <div className="auth-left"><img src="https://i.imgur.com/LfL2Oth.png" alt="" /></div>
+            <div className="auth-right">
+                <h1>Elevate Your Collection</h1>
+                <h1>Join today.</h1>
                 {showSignUpForm ? <SignUpForm setUser={setUser} /> : <LoginForm setUser={setUser} />}
+                <button className="btn btn-primary" onClick={() => setShowSignUpForm(!showSignUpForm)}>{showSignUpForm ? 'Already have an account? Sign in' : 'Create an Account'}</button>
             </div>
         </main>
     );
