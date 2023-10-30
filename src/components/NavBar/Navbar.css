@@ -12,3 +12,7 @@
 .navbar {
     padding: 0;
 }
+
+.dropdown-menu a {
+    text-decoration: none;
+}

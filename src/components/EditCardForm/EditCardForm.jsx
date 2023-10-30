@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as imagesAPI from '../../utilities/images-api';
 import * as cardsAPI from '../../utilities/cards-api';
+import './EditCardForm.css';
 
 export default function EditCardForm({ userCard, setUserCard, setAllCards, allCards }) {
     const [isUploading, setIsUploading] = useState(false);
@@ -18,7 +19,7 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
         const newImgs = await imagesAPI.uploadImgs(formData);  // Upload the image to AWS and get the URL
         const updatedCard = { // Update the image property in the card state
             ...userCard,
-            images: newImgs,
+            images: newImgs
         };
         const allUpdatedCards = await cardsAPI.update(updatedCard);
         setAllCards(allUpdatedCards);
@@ -35,7 +36,8 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
 
     return (
         <div>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <h1>{userCard.player}: {userCard.title}</h1>
+            <form className='EditCardForm' onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
                 <input required name="player" value={userCard.player || ''} id="player" onChange={handleChange} />
                 <label htmlFor="year">Year</label>
@@ -57,10 +59,10 @@ export default function EditCardForm({ userCard, setUserCard, setAllCards, allCa
                 </select>
                 <label htmlFor="description">Condition/Other Details</label>
                 <input required name="description" id="description" value={userCard.description || ''} onChange={handleChange} />
-                <button disabled={isUploading} type="submit">Submit</button>
+                <button className='btn btn-primary' disabled={isUploading} type="submit">Submit</button>
                 <h1>{isUploading ? 'Loading...' : ''}</h1>
             </form>
-        </div>
+        </div >
 
     );
 }
