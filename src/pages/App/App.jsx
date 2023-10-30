@@ -10,23 +10,29 @@ import CardDetailPage from '../../pages/CardDetailPage/CardDetailPage';
 import EditCardPage from '../EditCardPage/EditCardPage';
 import CartPage from '../CartPage/CartPage';
 import * as cardsAPI from '../../utilities/cards-api';
+import * as ordersAPI from '../../utilities/orders-api';
 
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [allCards, setAllCards] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(null);
 
   useEffect(function () {
     async function getAllCards() {
       const allCards = await cardsAPI.getAllCards();
       setAllCards(allCards);
     }
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
     if (allCards.length === 0) {
       getAllCards();
+      getCart();
     }
 
-  }, [allCards, setAllCards]);
+  }, [allCards, setAllCards, setCart]);
   return (
     <main className="App">
       {user ?
