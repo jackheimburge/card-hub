@@ -1,8 +1,7 @@
 .CartPage {
     display: flex;
-    margin: 1rem;
+    margin: -1rem 0;
     justify-content: flex-start;
-    flex-wrap: wrap;
 }
 
 .CartPage button {
@@ -17,4 +16,8 @@
 .CartPage .CardListItem {
     width: 27vw;
     margin: 1rem;
+}
+
+.CartPage .CardListItem img {
+    height: 15rem;
 }

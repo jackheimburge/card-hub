@@ -11,6 +11,10 @@ const orderSchema = new Schema({
         type: Boolean,
         default: false
     },
+    total: {
+        type: Number,
+        default: 0
+    },
     cards: [{
         type: Schema.Types.ObjectId,
         ref: 'Card'
@@ -28,6 +32,17 @@ orderSchema.statics.getCart = function (userId) {
         { upsert: true, new: true }
     );
 };
+
+orderSchema.pre('save', async function (next) {
+    const Card = mongoose.model('Card');
+    const cards = await Card.find({ _id: { $in: this.cards } });
+    let total = 0;
+    for (let card of cards) {
+        total += parseFloat(card.price);
+    }
+    this.total = total;
+    next();
+})
 
 orderSchema.methods.addCardToCart = async function (cardId) {
     const cart = this;

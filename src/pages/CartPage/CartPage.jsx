@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
-import CartItem from '../../components/CartItem/CartItem';
 import CheckoutBtn from '../../components/CheckoutBtn/CheckoutBtn';
 import { Link } from 'react-router-dom';
 import CardListItem from '../../components/CardListItem/CardListItem';
@@ -8,12 +7,13 @@ import './CartPage.css';
 
 export default function CartPage({ setCart, cart, allCards }) {
     const [checkoutMessage, setCheckoutMessage] = useState(null);
-
+    const [total, setTotal] = useState(0);
     useEffect(function () {
         async function getCart() {
             const cart = await ordersAPI.getCart();
+            setTotal(cart.total);
             const cartItems = allCards.filter((card) => cart.cards.includes(card._id));
-            setCart(cartItems)
+            setCart(cartItems);
         }
         getCart();
     }, [setCart, allCards]);
@@ -39,7 +39,7 @@ export default function CartPage({ setCart, cart, allCards }) {
                         </div>
                     ))}
                     <div>
-                        <CheckoutBtn handleCheckout={handleCheckout} />
+                        <CheckoutBtn handleCheckout={handleCheckout} cart={cart} total={total} />
                     </div>
                 </>
             ) : (
