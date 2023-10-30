@@ -1,4 +1,3 @@
-import CategoryList from '../../components/CategoryList/CategoryList';
 import CardList from '../../components/CardList/CardList';
 import './HomePage.css';
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CardListItem from '../../components/CardListItem/CardListItem';
 import './CartPage.css';
 
-export default function CartPage({ setCart, cart, allCards, setAllCards }) {
+export default function CartPage({ setCart, cart, allCards }) {
     const [checkoutMessage, setCheckoutMessage] = useState(null);
     const [total, setTotal] = useState(0);
     const [isPaid, setIsPaid] = useState(false);
@@ -28,7 +28,6 @@ export default function CartPage({ setCart, cart, allCards, setAllCards }) {
         } catch (error) {
             setCheckoutMessage('Checkout failed. Try Again.')
         }
-
     }
 
     return (

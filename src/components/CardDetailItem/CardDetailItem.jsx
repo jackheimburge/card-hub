@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
-export default function CardDetailItem({ card, setAllCards, allCards, user, handleAddToCart, cart }) {
+export default function CardDetailItem({ card, setAllCards, allCards, user, handleAddToCart, handleRemoveFromCart }) {
     return (
         <div className="card-info">
             <h1>{card.player}</h1>
@@ -20,11 +20,14 @@ export default function CardDetailItem({ card, setAllCards, allCards, user, hand
                         state: { card }
                     }}
                     >
-                        <button className='btn btn-success'>Edit Listing</button>
+                        <button className='btn btn-warning mx-5'>Edit Listing</button>
                     </Link>
                     <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
                 </div>
-                : <button className='btn btn-success' onClick={() => handleAddToCart(card._id)} >Add to Cart</button>
+                : <>
+                    <button className='btn btn-success' onClick={() => handleAddToCart(card._id)} >Add to Cart</button>
+                    <button className='btn btn-danger' onClick={() => handleRemoveFromCart(card._id)} >Remove from Cart</button>
+                </>
             }
         </div>
     );

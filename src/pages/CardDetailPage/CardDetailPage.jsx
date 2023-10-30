@@ -22,7 +22,11 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart, c
     async function handleAddToCart(cardId) {
         const updatedCart = await ordersAPI.addCardToCart(cardId);
         setCart(updatedCart);
+    }
 
+    async function handleRemoveFromCart(cardId) {
+        const updatedCart = await ordersAPI.removeCardFromCart(cardId);
+        setCart(updatedCart);
     }
 
     return (
@@ -30,7 +34,7 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart, c
             {card ? (
                 <>
                     <Carousel card={card} />
-                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} handleAddToCart={handleAddToCart} cart={cart} />
+                    <CardDetailItem user={user} setAllCards={setAllCards} allCards={allCards} card={card} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} cart={cart} />
                     <SellerInfoCard user={user} card={card} />
                 </>
             ) : (<h1 className="d-flex">Loading...</h1>)
