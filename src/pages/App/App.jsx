@@ -30,11 +30,8 @@ export default function App() {
     if (user) {
       getCart();
     }
-    if (allCards.length === 0) {
-      getAllCards();
-    }
-
-  }, [allCards, setAllCards, setCart, user]);
+    getAllCards();
+  }, [user]);
   return (
     <main className="App">
       {user ?
@@ -42,7 +39,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/" element={<HomePage allCards={allCards} user={user} />} />
+            <Route path="/" element={<HomePage allCards={allCards} user={user} setAllCards={setAllCards} />} />
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
             <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} setCart={setCart} cart={cart} />} />
             <Route path="/cards/:id/edit" element={<EditCardPage allCards={allCards} setAllCards={setAllCards} />} />
