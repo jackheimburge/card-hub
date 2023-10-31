@@ -75,7 +75,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 </select>
                 <label htmlFor="description">Condition/Other Details</label>
                 <input required name="description" id="description" value={card.description} onChange={handleChange} />
-                <button disabled={isUploading} type="submit">Submit</button>
+                <button className='btn btn-primary' disabled={isUploading} type="submit">Submit</button>
             </form>
             <h1>{isUploading ? 'Loading...' : ''}</h1>
         </div>
