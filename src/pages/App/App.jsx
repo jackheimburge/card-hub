@@ -16,7 +16,7 @@ import * as ordersAPI from '../../utilities/orders-api';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [allCards, setAllCards] = useState([]);
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState([]);
 
   useEffect(function () {
     async function getAllCards() {
@@ -25,7 +25,8 @@ export default function App() {
     }
     async function getCart() {
       const cart = await ordersAPI.getCart();
-      setCart(cart);
+      const cartItems = allCards.filter((card) => cart.cards.includes(card._id));
+      setCart(cartItems);
     }
     if (user) {
       getCart();

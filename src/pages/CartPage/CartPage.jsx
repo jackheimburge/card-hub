@@ -23,7 +23,7 @@ export default function CartPage({ setCart, cart, allCards, setAllCards }) {
     async function handleCheckout() {
         try {
             const checkoutMsg = await ordersAPI.checkout();
-            setCart(null);
+            setCart([]);
             setCheckoutMessage(checkoutMsg);
         } catch (error) {
             setCheckoutMessage('Checkout failed. Try Again.')

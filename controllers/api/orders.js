@@ -11,10 +11,8 @@ async function addToCart(req, res) {
     try {
         const cart = await Order.getCart(req.user._id);
         await cart.addCardToCart(req.params.id);
-        console.log(req.params.id)
         res.json(cart);
     } catch (error) {
-        console.error('Error adding card to cart:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 }

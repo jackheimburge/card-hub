@@ -25,11 +25,20 @@ export default function CardDetailItem({ card, setAllCards, allCards, user, hand
                     </Link>
                     <DeleteButton setAllCards={setAllCards} card={card} allCards={allCards} />
                 </div>
-                : <>
-                    <button className='btn btn-success' onClick={() => handleAddToCart(card._id)} >Add to Cart</button>
-                    <button className='btn btn-danger' onClick={() => handleRemoveFromCart(card._id)} >Remove from Cart</button>
-                </>
+                : <button
+                    className={`btn ${cart.some(item => item._id === card._id) ? 'btn-danger' : 'btn-success'}`}
+
+                    onClick={() => {
+                        if (cart.some((item) => item._id === card._id)) {
+                            handleRemoveFromCart(card._id);
+                        } else {
+                            handleAddToCart(card._id);
+                        }
+                    }}
+                >
+                    {cart.some((item) => item._id === card._id) ? 'Remove from Cart' : 'Add to Cart'}
+                </button>
             }
-        </div>
+        </div >
     );
 }

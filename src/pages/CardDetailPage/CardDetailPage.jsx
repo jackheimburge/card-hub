@@ -17,16 +17,18 @@ export default function CardDetailPage({ user, setAllCards, allCards, setCart, c
             setCard(returnedCard);
         }
         getCard();
-    }, [id]);
+    }, [id, cart, setCart]);
 
     async function handleAddToCart(cardId) {
         const updatedCart = await ordersAPI.addCardToCart(cardId);
-        setCart(updatedCart);
+        const cartItems = allCards.filter((card) => updatedCart.cards.includes(card._id));
+        setCart(cartItems);
     }
 
     async function handleRemoveFromCart(cardId) {
         const updatedCart = await ordersAPI.removeCardFromCart(cardId);
-        setCart(updatedCart);
+        const cartItems = allCards.filter((card) => updatedCart.cards.includes(card._id));
+        setCart(cartItems);
     }
 
     return (
