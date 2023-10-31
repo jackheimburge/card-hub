@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CardListItem from '../../components/CardListItem/CardListItem';
 import './CartPage.css';
 
-export default function CartPage({ setCart, cart, allCards }) {
+export default function CartPage({ setCart, cart, allCards, setAllCards }) {
     const [checkoutMessage, setCheckoutMessage] = useState(null);
     const [total, setTotal] = useState(0);
     const [isPaid, setIsPaid] = useState(false);
@@ -18,7 +18,7 @@ export default function CartPage({ setCart, cart, allCards }) {
             setCart(cartItems);
         }
         getCart();
-    }, [setCart, allCards]);
+    }, [setCart, allCards, setAllCards]);
 
     async function handleCheckout() {
         try {

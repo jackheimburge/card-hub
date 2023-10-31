@@ -28,7 +28,7 @@ Collect your favorite teams and players!
 
 ## Getting Started 
 
-Use the icons at the top of the index page to filter by category or use the search bar to find specific cards. Click on an image to view more details and add to cart. Navigate to your cart to checkout your items. Navigate to your dashboard to view your cards for sell and add new cards
+Use the icons at the top of the index page to filter by category or use the search bar to find specific cards. Click on an image to view more details and add to cart. Navigate to your cart to checkout your items. Navigate to your dashboard to view your cards for sell and add new cards.
 
 - [Trello](https://trello.com/b/GkMiWR9B/card-hub) 
 

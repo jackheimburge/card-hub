@@ -34,7 +34,7 @@ export default function App() {
       getAllCards();
     }
 
-  }, [allCards, setAllCards, setCart]);
+  }, [allCards, setAllCards, setCart, user]);
   return (
     <main className="App">
       {user ?

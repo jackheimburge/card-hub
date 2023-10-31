@@ -13,7 +13,7 @@ export function getCart() {
     return sendRequest(`${BASE_URL}/cart`);
 }
 
-export function checkout(cards) {
+export function checkout() {
     return sendRequest(`${BASE_URL}/cart/checkout`, 'POST')
 }
 

@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 8rem;
+    padding-top: 7rem;
+
 }
 
 .AuthPage .login-signup-btn {
