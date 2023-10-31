@@ -38,7 +38,7 @@ Use the icons at the top of the index page to filter by category or use the sear
 |------------ | ------------|
 | <h3 align="center">Login Page</h3> | <img src="https://i.imgur.com/4lYbtap.png">
 | <h3 align="center">Index</h3> | <img src="https://i.imgur.com/WI8O9IS.png">
-| <h3 align="center">Card Detail</h3> | <img src="https://i.imgur.com/ts6tnQY.png">
+| <h3 align="center">Card Detail</h3> | <img src="https://i.imgur.com/RT98q1g.png">
 | <h3 align="center">Cart</h3> | <img src="https://i.imgur.com/0p0mCqx.png">
 
 # Technologies Used
