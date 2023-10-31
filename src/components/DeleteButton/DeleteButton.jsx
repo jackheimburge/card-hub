@@ -8,8 +8,8 @@ export default function DeleteButton({ card, setAllCards, allCards }) {
 
     async function handleDeleteCard() {
         try {
-            const deletedCard = await cardsAPI.deleteCard(card);
-            setAllCards(allCards.filter(card => card.id !== deletedCard._id));
+            const allCards = await cardsAPI.deleteCard(card);
+            setAllCards(allCards);
             navigate('/dashboard');
         } catch (error) {
             throw new Error(error);

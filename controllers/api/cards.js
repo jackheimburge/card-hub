@@ -25,8 +25,9 @@ async function getCard(req, res) {
 }
 
 async function deleteCard(req, res) {
-    const deletedCard = await Card.deleteOne(req.body);
-    res.json(deletedCard);
+    await Card.deleteOne(req.body);
+    const allCards = await Card.find({ isSold: false });
+    res.json(allCards);
 }
 
 async function update(req, res) {
