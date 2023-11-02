@@ -11,6 +11,7 @@ import EditCardPage from '../EditCardPage/EditCardPage';
 import CartPage from '../CartPage/CartPage';
 import * as cardsAPI from '../../utilities/cards-api';
 import * as ordersAPI from '../../utilities/orders-api';
+import StorefrontPage from '../StorefrontPage/StorefrontPage';
 
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} setCart={setCart} cart={cart} />} />
             <Route path="/cards/:id/edit" element={<EditCardPage allCards={allCards} setAllCards={setAllCards} />} />
             <Route path="/cart" element={<CartPage allCards={allCards} setAllCards={setAllCards} cart={cart} setCart={setCart} />} />
+            <Route path="/storefront/:userId" element={<StorefrontPage />} />
           </Routes>
         </>
         :
