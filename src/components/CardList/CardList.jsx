@@ -7,7 +7,7 @@ const delayMs = 100;
 
 export default function CardList({ allCards, user }) {
     const [filterText, setFilterText] = useState('');
-    const [cat, setCat] = useState(''); // Add this state variable
+    const [cat, setCat] = useState('');
     const [filteredItems, setFilteredItems] = useState(allCards);
     const timerIdRef = useRef();
 
@@ -15,7 +15,7 @@ export default function CardList({ allCards, user }) {
         function doFilter() {
             const re = new RegExp(`.*${filterText}.*`, 'i');
             const filterByText = allCards.filter(card => re.test(card.player) || re.test(card.title) || re.test(card.category));
-            // Filter by category (selectedCategory)
+            // Filter by category
             const allFilters = filterByText.filter(card => !cat || card.category === cat);
             setFilteredItems(allFilters);
         }

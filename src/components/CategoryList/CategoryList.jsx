@@ -19,8 +19,8 @@ export default function CategoryList({ setFilterText, setCat }) {
                 <label htmlFor="soccer">Soccer</label></button>
             <button id="other" name="other" onClick={() => handleClick('Other')}><img src="https://i.imgur.com/aSC2ZF6.png" alt="" />
                 <label htmlFor="other">Other</label></button>
-            <button id="other" name="other" onClick={() => handleClick('')}><img src="https://i.imgur.com/i9ZBaEC.png" alt="" />
-                <label htmlFor="other">All Cards</label></button>
+            <button id="all" name="all" onClick={() => handleClick('')}><img src="https://i.imgur.com/i9ZBaEC.png" alt="" />
+                <label htmlFor="all">All Cards</label></button>
         </div>
     );
 }

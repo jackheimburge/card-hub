@@ -53,6 +53,7 @@ export default function NewCardForm({ allCards, setAllCards }) {
 
     return (
         <div className='NewCardForm'>
+            <h1 className='text-center'>{isUploading ? 'Loading...' : ''}</h1>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="player">Player</label>
                 <input required name="player" value={card.player} id="player" onChange={handleChange} />
@@ -77,7 +78,6 @@ export default function NewCardForm({ allCards, setAllCards }) {
                 <input required name="description" id="description" value={card.description} onChange={handleChange} />
                 <button className='btn btn-primary' disabled={isUploading} type="submit">Submit</button>
             </form>
-            <h1>{isUploading ? 'Loading...' : ''}</h1>
         </div>
 
     );
