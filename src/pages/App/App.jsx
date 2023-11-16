@@ -45,7 +45,7 @@ export default function App() {
             <Route path="/dashboard" element={<DashboardPage allCards={allCards} user={user} setAllCards={setAllCards} />} />
             <Route path="/cards/:id" element={<CardDetailPage user={user} setAllCards={setAllCards} allCards={allCards} setCart={setCart} cart={cart} />} />
             <Route path="/cards/:id/edit" element={<EditCardPage allCards={allCards} setAllCards={setAllCards} />} />
-            {/* <Route path="/cart" element={<CartPage allCards={allCards} setAllCards={setAllCards} cart={cart} setCart={setCart} />} /> */}
+            <Route path="/cart" element={<CartPage allCards={allCards} setAllCards={setAllCards} cart={cart} setCart={setCart} />} />
             <Route path="/storefront/:userId" element={<StorefrontPage />} />
           </Routes>
         </>
