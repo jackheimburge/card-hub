@@ -4,7 +4,7 @@ import * as imagesAPI from '../../utilities/images-api';
 import * as cardsAPI from '../../utilities/cards-api';
 import './EditCardForm.css';
 
-export default function EditCardForm({ userCard, setUserCard, setAllCards, allCards }) {
+export default function EditCardForm({ userCard, setUserCard, setAllCards }) {
     const [isUploading, setIsUploading] = useState(false);
     const fileInputRef = useRef();
     const navigate = useNavigate();

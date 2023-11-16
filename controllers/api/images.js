@@ -7,7 +7,6 @@ module.exports = {
 async function upload(req, res) {
     try {
         if (req.files) {
-            console.log('img url')
             const imgUrls = await Promise.all(req.files.map(uploadImages))
             res.json(imgUrls);
         } else {
